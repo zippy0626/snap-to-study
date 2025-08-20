@@ -5,12 +5,12 @@ export interface Summary {
   createdAt: Date;
 }
 
-export interface Flashcard {
+export interface FlashCard {
   title: string;
   question: string;
   answer: string;
   tags?: string[]; //string arr
   createdAt: Date;
-  reviewedAt?: Date;
+  reviewedAt?: Date; //optional args with ?
   reviewCount?: number;
 }
