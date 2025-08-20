@@ -1,1 +1,1 @@
-# ctp-hacks-2025-project
+# snap2Study
