@@ -1,0 +1,49 @@
+body {
+    background-color: #C65F5F;
+}
+
+h1, form {
+    text-align: center;
+}
+
+.file-area {
+    background-color: rgba(217, 217, 217, 0.5);
+    min-width: 300px;
+    max-width: 600px;
+    width: 60vh;
+    height: 200px;
+    margin: 10px auto;
+    border-radius: 50px;
+    border-style: dashed;
+    border-width: 1px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form button {
+    border-style: none;
+    border-radius: 40px;
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+form button + button {
+    margin-left: 80px;
+}
+
+footer {
+    text-align: center;
+}
+
+footer p {
+    display: inline-block;
+    padding: 0;
+}
+
+footer p + p {
+    padding-left: 20px;
+}

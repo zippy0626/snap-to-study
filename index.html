@@ -3,11 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/src/styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snap2Study</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <main>
+        <h1>Snap2Study</h1>
+        <form id="upload-form">
+          <legend>Upload files to get started</legend>
+          <div class="file-area">
+            <label for="file">
+              <div>Select Files (.pdf, .jpg, .jpeg, .png)</div>
+              <input type="file" id="file" accept=".pdf,.jpg,.jpeg,.png" multiple required></label>
+          </div>
+          <button type="submit">Generate Flashcards</button>
+          <button type="submit">Get Summary</button>
+        </form>
+
+        <footer>
+          <p>Made by Michael Too, Gustensen, and Amy Ng</p>
+          <p>CTP Hackathon 2025 Cohort 11</p>
+        </footer>
+      </main>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
