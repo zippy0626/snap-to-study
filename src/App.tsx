@@ -6,6 +6,7 @@ import './App.css'
 
 import Head from "./components/Head.tsx"
 import Upload from "./components/Upload.tsx"
+import Start from "./components/Start.tsx"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,16 +15,20 @@ function App() {
     <>
 
       <Head />
-      <Upload />
+      {/* <Upload /> */}
+      <Start />
+      
+      <Router>
+        <Routes>
+
+          {/* <Route path='/' element={<Upload/>} /> */}
 
 
-      <h1>Snap 2 Study</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Snap! {count}
-        </button>
+        </Routes>
 
-      </div>
+        
+      </Router>
+
 
     </>
   )

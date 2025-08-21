@@ -10,7 +10,7 @@ function Head() {
       <div className="logo-container">
 
         <a href="/" target="_blank"  >
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <h1>Snap 2 Study</h1>
         </a>
       </div>
 
