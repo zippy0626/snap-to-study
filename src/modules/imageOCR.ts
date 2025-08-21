@@ -1,7 +1,7 @@
 import Tesseract from "tesseract.js";
 
 // Single Worker for one image
-export async function getTextFromImage(image: File): Promise<string> {
+export async function getTextFromImage(image: File | HTMLCanvasElement): Promise<string> {
   const worker = await Tesseract.createWorker("eng");
 
   worker.setParameters({
@@ -18,7 +18,7 @@ export async function getTextFromImage(image: File): Promise<string> {
 }
 
 // Multiple Workers for multiple images
-export async function getTextFromMultipleImages(...images: File[]): Promise<string[]> {
+export async function getTextFromMultipleImages(...images: File[] | HTMLCanvasElement[]): Promise<string[]> {
   const scheduler = Tesseract.createScheduler();
 
   const getWorker = async () => {
