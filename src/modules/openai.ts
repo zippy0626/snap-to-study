@@ -4,12 +4,15 @@ import { z } from "zod";
 
 const client = new OpenAI();
 
-// use flashcard.ts 
-// const Flashcard = z.object({
-//     name: z.string(),
-//     question: z.string(),
-//     answer: z.string()
-// });
+const Flashcard = z.object({
+    title: z.string(),
+    front: z.string(),
+    back: z.string(),
+    tags: z.array(z.string()).optional(),
+    reviewedAt: z.date().optional(),
+    reviewCount: z.number().optional(),
+    createdAt: z.date()
+});
 
 export async function makeFlashcards(ocrText: string)
 {
@@ -25,17 +28,4 @@ export async function makeFlashcards(ocrText: string)
     });
 
     return response.output_parsed;
-}
-
-export async function makeSummary(ocrText: string)
-{
-    const response = await client.chat.completions.create({
-        model: "chatgpt-4o-mini",
-        messages: [
-            { role: "system", content: "You are a helpful assistant that generates concise summaries." },
-            { role: "user", content: ocrText },
-        ],
-    });
-
-    return response.choices[0].message?.content || "";
 }
