@@ -14,12 +14,12 @@ const Flashcard = z.object({
     createdAt: z.date()
 });
 
-export async function makeFlashcards(ocrText: string)
+export async function makeFlashcards(ocrText: string, numOfCards: number)
 {
     const response = await client.responses.parse({
         model: "gpt-4o-mini",
         input: [
-            { role: "system", content: "Generate flashcards in JSON format from the text." },
+            { role: "system", content: `Generate exactly ${numOfCards} flashcards in JSON format from the text.` },
             { role: "user", content: ocrText },
         ],
         text: {
