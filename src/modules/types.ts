@@ -1,15 +1,4 @@
 // these are like blueprints you need to follow for Objects
-export interface ISummary {
-  title: string;
-  text: string;
-  source?: string;
-  createdAt: Date;
-
-  // functions
-  changeTitle(title: string): void;
-  changeText(text: string): void;
-}
-
 export interface IFlashCard {
   title: string;
   front: string;
