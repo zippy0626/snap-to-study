@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Slider from "react-slick";
 import type { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Flashcards.css";
 
-function FlipButton() {
+import type { FlashCard } from "../modules/flashCard.ts";
+
+
+function FlipButton({ front, back }: { front: string; back: string }) {
   const [flipped, setFlipped] = useState(false);
   return (
     <button
@@ -15,8 +19,8 @@ function FlipButton() {
       aria-pressed={flipped}
     >
       <span className={`flipwrap${flipped ? " is-flipped" : ""}`}>
-        <span className="face front"><h1>Flashcard!</h1></span>
-        <span className="face back"><h1>Back!</h1></span>
+        <span className="face front"><h1>{front}</h1></span>
+        <span className="face back"><h1>{back}</h1></span>
       </span>
     </button>
   );
@@ -33,23 +37,21 @@ function Flashcards() {
     centerPadding: "106px",
   };
 
+  const location = useLocation();
+  const flashCards = (location.state?.flashCards ?? []) as FlashCard[];
+
+  // Map to the minimal shape this component needs
+  const data = flashCards.map(fc => ({ front: fc.front, back: fc.back }));
+
   return (
     <div className="flashcards">
       <Slider {...settings}>
-        {data.map((d) => (
-          <FlipButton key={d.name} />
+        {data.map((d, i) => (
+          <FlipButton key={i} front= {d.front} back = {d.back} />
         ))}
       </Slider>
     </div>
   );
 }
-
-const data = [
-  { name: "John Morgan", review: "Lorem ipsum dolor sit amet..." },
-  { name: "Ellie Anderson", review: "Lorem ipsum dolor sit amet..." },
-  { name: "Nia Adebayo", review: "Lorem ipsum dolor sit amet..." },
-  { name: "Rigo Louie", review: "Lorem ipsum dolor sit amet..." },
-  { name: "Mia Williams", review: "Lorem ipsum dolor sit amet..." },
-];
 
 export default Flashcards;

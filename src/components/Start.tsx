@@ -21,7 +21,7 @@ function Start() {
         </div>
 
         <button className="start" onClick= {handleNavigate} >
-          Get Started! /add transition to Upload/
+          Get Started
         </button>
 
       </div>

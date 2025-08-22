@@ -1,8 +1,10 @@
 .card {
     height: 30em;
     padding: 1em;
-    background-color: rgb(224, 233, 233);
+    background-color: #FFFFFF;
     text-align: left;
+    border-radius: 20px;
+    border:        #E5E7EB;
 
     display: flex;
     flex-direction: column;

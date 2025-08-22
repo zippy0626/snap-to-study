@@ -1,12 +1,60 @@
 .upload {
-    height: 30em;
-    padding: 1em;
-    background-color: rgb(224, 233, 233);
-    text-align: left;
 
+    width: min(560px, 92%);
+    margin: 2rem auto;
+    padding: 1.25rem 1.5rem;
+    height: auto;     
+    background-color: #FFFFFF;
+    border-radius: 20px;
+  }
+  
+  #upload-form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; 
+    gap: 1rem; 
+    text-align: center;
+  }
+  
+  .file-area,
+  #upload-form > label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex;
+    gap: 1rem;
+  }
+  
+  /* size n center the inputs */
+  #upload-form input[type="file"],
+  #upload-form input[type="number"] {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  
+  /* keep the submit button centered */
+  #upload-form button[type="submit"] {
+    align-self: center;
+  }
+  
 
-    border-radius: 20px;
-}
+  /* center the 'choose' label */
+#upload-form .file-area {
+    display: flex;
+    flex-direction: column; /* stack the text and the control */
+    align-items: center;     /* center horizontally */
+    gap: 0.5rem;
+  }
+  
+  #upload-form input[type="file"] {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+    margin: 0; 
+  }
+  
+  h1 {
+    color: black;
+  }
