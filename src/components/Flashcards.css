@@ -1,0 +1,19 @@
+/* Center the slider container */
+.flashcards {
+  width: 75%;
+  margin: 0 auto;
+}
+
+/* gutters between slides */
+.slick-slide > div {
+  padding: 0 24px; /* adjust gap here */
+}
+
+.flash {
+  background-color: black;
+  height: 20em;
+}
+
+.card-button {
+  height: 20em;
+}

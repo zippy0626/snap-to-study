@@ -1,5 +1,6 @@
-
-
+import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import "./Upload.css"
 function Upload() {
 
     /*still need to finish this func
@@ -8,9 +9,14 @@ function Upload() {
     }
     */
 
+    const [numFlash, setNumFlash] = useState({
+        numFlash: 0
+    })
+
     return(
         <>
-        <h1>Snap2Study</h1>
+        <div className="upload">
+
         <form id="upload-form">
           <legend>Upload files to get started</legend>
           <div className="file-area">
@@ -18,9 +24,12 @@ function Upload() {
               <div>Select Files (.pdf, .jpg, .jpeg, .png)</div>
               <input type="file" id="file" accept=".pdf,.jpg,.jpeg,.png" multiple required /></label>
           </div>
-          <button type="submit">Generate Flashcards</button>
+          <label htmlFor= "qty" />
+          <input id="qty" name="qty" type="number" min="1" max="50" step="1" required></input>
+          <button type="submit">Snap!</button>
           </form>
 
+          </div>
           </>
 
     )
