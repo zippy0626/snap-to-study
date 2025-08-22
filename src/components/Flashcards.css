@@ -17,3 +17,38 @@
 .card-button {
   height: 20em;
 }
+
+/* 3D flip */
+.flash { perspective: 1000px; }
+
+.flash .flipwrap {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.flash .flipwrap.is-flipped { transform: rotateX(180deg); }
+
+.flash .face {
+  backface-visibility: hidden;
+  display: inline-block;
+}
+
+/* back face sits exactly atop the front */
+.flash .face.back {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(180deg);
+}
+
+/* make the button box wider */
+.flash { 
+  min-width: 500px;
+}
+
+/*flipping surface fills the wider button */
+.flash .flipwrap {
+  display: block;
+  width: 100%;
+}
