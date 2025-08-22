@@ -6,7 +6,7 @@ import './App.css'
 import Head         from "./components/Head.tsx"
 import Upload       from "./components/Upload.tsx"
 import Start        from "./components/Start.tsx"
-import Flashcards   from "./components/flashcards.tsx"
+import Flashcards   from "./components/Flashcards.tsx"
 
 function App() {
 
