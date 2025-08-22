@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import './App.css'
@@ -10,7 +9,7 @@ import Start        from "./components/Start.tsx"
 import Flashcards   from "./components/flashcards.tsx"
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
