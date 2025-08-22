@@ -7,7 +7,7 @@ import { getTextFromImage } from "../modules/imageOCR.ts";
 import { makeFlashcards } from "../modules/openAI.ts";
 import type { FlashCard } from "../modules/flashCard.ts";
 
-// helper: File -> HTMLImageElement
+// HTMLImageElement
 function fileToImage(file: File): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(file);

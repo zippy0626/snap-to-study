@@ -11,11 +11,11 @@
 
 /* Button/card base */
 .flash {
-  background-color:  #FFFFFF;
+  background-color:  #ffffffca;
   height: 20em;
   min-width: 500px;
   perspective: 1000px;
-  container-type: size; /* enable cqi/cqh units for auto-fit text */
+  container-type: size;
 }
 
 .card-button {
@@ -33,7 +33,7 @@
 }
 .flash .flipwrap.is-flipped { transform: rotateX(180deg); }
 
-/* Faces fill, center content, prevent overflow */
+/* Faces */
 .flash .face {
   position: relative;
   width: 100%;
@@ -43,12 +43,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;  /* base padding */
-  overflow: hidden;  /* no spill outside the button */
+  padding: 0.75rem;  /* padding */
+  overflow: hidden;  /* no spill out the button */
   text-align: center;
 }
 
-/* Back face sits exactly atop the front and is rotated */
+/* back face sits on top of the front and is rotated */
 .flash .face.back {
   position: absolute;
   inset: 0;
@@ -56,7 +56,7 @@
   padding: 0.5rem; /* slightly tighter to give more room for text */
 }
 
-/* Typography auto-fit: scale to container size */
+/* Text fits to card */
 .flash .face h1,
 .flash .face p {
   margin: 0;
@@ -73,7 +73,7 @@
   font-size: clamp(10px, min(6.5cqi, 11cqh), 28px);
 }
 
-/* Back text may be longer: allow smaller sizes to ensure full fit */
+/* makes sure back side text also fits */
 .flash .face.back h1,
 .flash .face.back p {
   font-size: clamp(8px, min(6cqi, 10cqh), 28px);
