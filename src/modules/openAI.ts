@@ -3,7 +3,7 @@ import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 import { FlashCard } from "./flashCard.ts";
 
-export async function makeFlashcards(ocrText: string, numOfCards: number, apiKey: string) {
+export async function makeFlashcards(ocrText: string, numOfCards: number, apiKey: string): Promise<FlashCard[]> {
   const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
 
   // array of flash card objects
