@@ -86,7 +86,7 @@ function Upload() {
           />
         </div>
 
-        <label htmlFor="qty">How many?</label>
+        <label htmlFor="qty">How many flashcards?</label>
         <input id="qty" name="qty" type="number" min={1} max={50} step={1} required />
 
         <button type="submit">Snap!</button>
