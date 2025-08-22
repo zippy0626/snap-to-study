@@ -1,31 +1,44 @@
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
+import { FlashCard } from "./flashCard.ts";
 
-const client = new OpenAI();
+export async function makeFlashcards(ocrText: string, numOfCards: number, apiKey: string) {
+  const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
 
-const Flashcard = z.object({
-    title: z.string(),
-    front: z.string(),
-    back: z.string(),
-    tags: z.array(z.string()).optional(),
-    reviewedAt: z.date().optional(),
-    reviewCount: z.number().optional(),
-    createdAt: z.date()
-});
+  // array of flash card objects
+  const FlashCardSchema = z.object({
+    flashcards: z.array(
+      z.object({
+        title: z.string(),
+        front: z.string(),
+        back: z.string(),
+      })
+    )
+  });
 
-export async function makeFlashcards(ocrText: string, numOfCards: number)
-{
-    const response = await client.responses.parse({
-        model: "gpt-4o-mini",
-        input: [
-            { role: "system", content: `Generate exactly ${numOfCards} flashcards in JSON format from the text.` },
-            { role: "user", content: ocrText },
-        ],
-        text: {
-            format: zodTextFormat(z.array(Flashcard), "flashcards"),
-        },
-    });
+  const response = await openai.responses.parse({
+    model: "gpt-4o-mini",
+    input: [
+      {
+        role: "system", content: `Generate exactly ${numOfCards} flashcards in a JSON array format.
+Each flashcard should have fields: title, front, back` },
+      { role: "user", content: ocrText },
+    ],
+    text: {
+      format: zodTextFormat(FlashCardSchema, "flashcards"),
+    },
+  });
 
-    return response.output_parsed;
+  const rawCards = response.output_parsed?.flashcards ?? []
+
+  // need to convert plain objects to FlashCard instances
+  return rawCards.map(cardData => {
+    const flashCard = new FlashCard(
+      cardData.title,
+      cardData.front,
+      cardData.back,
+    );
+    return flashCard;
+  });
 }
